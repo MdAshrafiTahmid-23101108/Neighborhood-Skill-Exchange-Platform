@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Update</title>
+    <title>Skill List</title>
 </head>
 <body>
+    <header>
+        <h1>This is Skill List</h1>
+    </header>
+    <nav>
+        <a href="skill_update_admin.php"><h2>Skill List</h2></a>
+        <a href="challenge_update_admin.php"><h2>Challenge List</h2></a>
+    </nav>
     <section class="skill-list">
         <table>
             <thead>
                 <tr>
+                    <th>Skill id</th>
                     <th>Skill Name</th>
                     <th>Description</th>
                     <th>Category</th>
                     <th>Level</th>
-                    <th>Prerequisite</th>
+                    <th>Prerequisite Skill id</th>
                     <th>Requirement</th>
                 </tr>
             </thead>
@@ -27,11 +35,12 @@
                             while($row = mysqli_fetch_assoc($result)){
                         ?>
                 <tr>
+                            <td align="center"><?php echo $row["Skill_id"]; ?></td>
                             <td><?php echo $row["Skill_name"]; ?></td>
                             <td><?php echo $row["Description"]; ?></td>
                             <td><?php echo $row["Category"]; ?></td>
                             <td><?php echo $row["Expertise_level"]; ?></td>
-                            <td><?php echo $row["Parent_id"]; ?></td>
+                            <td align="center"><?php echo $row["Parent_id"]; ?></td>
                             <td><?php echo $row["Requirement"]; ?></td>
                 </tr>
                 <?php
@@ -46,10 +55,16 @@
             <p>Description:<input type="text" name="description" required></p>
             <p>Category:<input type="text" name="category" required></p>
             <p>Level:<input type="text" name="level" required></p>
-            <p>Prerequisite:<input type="text" name="parent"></p>
-            <p>Requirement:<input type="text" name="requirement"></p>
-            <input type="submit" value="Submit" />
-          </form>
+            <p>Prerequisite:<input type="int" name="parent"></p>
+            <p>Requirement:<input type="text" name="requirement" value="None"></p>
+            <input type="submit" value="Add" />
+        </form>
+
+        <h2>Remove Skill</h2>
+        <form action="remove_skill.php" method="post">
+            <p>Skill id:<input type="int" name="skill_id" required></p>
+            <input type="submit" value="Remove" />
+        </form>
     </section>
 </body>
 </html>

@@ -10,14 +10,13 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email
 	$sql = " INSERT INTO user (user_name,password,email,location,reputation,role) VALUES( '$username', '$password', '$email', '$location',0, 'user') ";
 	
 	$result = mysqli_query($conn, $sql);
-	echo "ran successfully";
 	if(mysqli_affected_rows($conn)){
-		//echo "Inserted Successfully";
 		header("Location: login.html");
+		exit();
 	}
 	else{
-		echo "Insertion Failed";
 		header("Location: signup.html");
+		exit();
 	}
 }
 ?>

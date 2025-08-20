@@ -13,12 +13,15 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $_SESSION['user_id'] = $row['user_id'];
         if ($row['role'] === 'admin') {
             header("Location: admin_dashboard.html");
+            exit();
         } elseif ($row['role'] === 'user') {
             header("Location: user_dashboard.php");
+            exit();
         }
     }
     else{
-        echo "Wrong username or password";
+        header("Location: login.html");
+        exit();
     }
 }
 ?>

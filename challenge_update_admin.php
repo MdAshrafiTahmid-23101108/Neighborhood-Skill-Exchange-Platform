@@ -30,7 +30,7 @@
                             <td><?php echo $row["Description"]; ?></td>
                             <td><?php echo $row["Start_time"]; ?></td>
                             <td><?php echo $row["End_time"]; ?></td>
-                            <td><?php echo $row["Reward"]; ?></td>
+                            <td align="center"><?php echo $row["Reward"]; ?></td>
                 </tr>
                 <?php
                             }
@@ -45,7 +45,7 @@
             <p>Start_time:<input type="datetime-local" name="start_time" required></p>
             <p>End_time:<input type="datetime-local" name="end_time" required></p>
             <p>Reward:<input type="text" name="reward" required></p>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Add" />
           </form>
     </section>
 </body>

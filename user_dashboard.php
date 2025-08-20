@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +12,11 @@
     <header>
         <h1>This is User Dashboard</h1>
     </header>
-    <?php
-    session_start(); 
+    <?php 
     require_once("DBconnect.php");
     if(!isset($_SESSION['user_id'])){
     header("Location: login.html");
+    exit();
     }
     $user_id = $_SESSION['user_id'];
     $sql = "SELECT * FROM user WHERE User_id=$user_id";
