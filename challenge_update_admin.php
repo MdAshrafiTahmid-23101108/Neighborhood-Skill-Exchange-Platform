@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Update</title>
+    <title>Challenge List</title>
 </head>
 <body>
+    <header>
+        <h1>This is Challenge List</h1>
+    </header>
+    <nav>
+        <a href="skill_update_admin.php"><h2>Skill List</h2></a>
+        <a href="admin_dashboard.html"><h2>Admin</h2></a>
+    </nav>
     <section class="Challenge list">
         <table>
             <thead>

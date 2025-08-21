@@ -11,6 +11,9 @@ if(isset($_POST['skill_name']) && isset($_POST['description']) && isset($_POST['
 	if(empty($parent)){
 		$parent = mysqli_fetch_assoc(mysqli_query($conn, " SELECT MAX(Skill_id) AS max_id FROM skill"))['max_id'] + 1;
 	}
+	if(empty($requirement)){
+		$requirement = "None";
+	}
 	
 	$sql = " INSERT INTO skill (skill_name,description,category,expertise_level,parent_id,requirement) VALUES( '$skill_name', '$description', '$category', '$level','$parent', '$requirement') ";
 	

@@ -10,7 +10,7 @@
         <h1>This is Skill List</h1>
     </header>
     <nav>
-        <a href="skill_update_admin.php"><h2>Skill List</h2></a>
+        <a href="admin_dashboard.html"><h2>Admin</h2></a>
         <a href="challenge_update_admin.php"><h2>Challenge List</h2></a>
     </nav>
     <section class="skill-list">
@@ -22,7 +22,7 @@
                     <th>Description</th>
                     <th>Category</th>
                     <th>Level</th>
-                    <th>Prerequisite Skill id</th>
+                    <th>Prerequisite</th>
                     <th>Requirement</th>
                 </tr>
             </thead>
@@ -40,7 +40,15 @@
                             <td><?php echo $row["Description"]; ?></td>
                             <td><?php echo $row["Category"]; ?></td>
                             <td><?php echo $row["Expertise_level"]; ?></td>
-                            <td align="center"><?php echo $row["Parent_id"]; ?></td>
+                            <td><?php if ($row["Skill_id"] == $row["Parent_id"]){
+                                                        echo "None";
+                                                    }else{
+                                                        $id = $row["Parent_id"];
+                                                        $parent = mysqli_fetch_assoc(mysqli_query($conn, "SELECT Skill_name,Expertise_level FROM skill WHERE Skill_id=$id"));
+                                                        echo "{$parent['Skill_name']}({$parent['Expertise_level']})";
+                                                    } 
+                                                ?>
+                            </td>
                             <td><?php echo $row["Requirement"]; ?></td>
                 </tr>
                 <?php
@@ -56,12 +64,12 @@
             <p>Category:<input type="text" name="category" required></p>
             <p>Level:<input type="text" name="level" required></p>
             <p>Prerequisite:<input type="int" name="parent"></p>
-            <p>Requirement:<input type="text" name="requirement" value="None"></p>
+            <p>Requirement:<input type="text" name="requirement"></p>
             <input type="submit" value="Add" />
         </form>
 
         <h2>Remove Skill</h2>
-        <form action="remove_skill.php" method="post">
+        <form action="remove_skill_admin.php" method="post">
             <p>Skill id:<input type="int" name="skill_id" required></p>
             <input type="submit" value="Remove" />
         </form>

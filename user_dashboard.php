@@ -12,6 +12,9 @@ session_start();
     <header>
         <h1>This is User Dashboard</h1>
     </header>
+    <nav>
+        <a href="#">My skills</a>
+    </nav>
     <?php 
     require_once("DBconnect.php");
     if(!isset($_SESSION['user_id'])){
@@ -25,6 +28,7 @@ session_start();
         $row = mysqli_fetch_array($result)
     ?>
     <h2><?php echo $row["User_name"]; ?></h2>
+    <h3>Reputation Score: <?php echo $row["Reputation"];?></h3>
     <?php
     }
     ?>
