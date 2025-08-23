@@ -15,3 +15,5 @@
 
 **6)Unique Feature 2: Community Skill Challenges:** The platform hosts community-driven challenges (e.g., “Learn a new skill this month”) with leaderboards and rewards, stored in the database, encouraging collective participation and gamification.
 
+![ER Diagrame](ER_Diagrame.jpg)
+

@@ -9,16 +9,16 @@ $user_id = $_SESSION['user_id'];
 $name = $_SESSION['user_name'];
 $reputation = $_SESSION['reputation'];
 
-function skill_status($conn,$user_id,$skill_id){
+function skill_status($conn,$user_id,$skill_id,$requirement){
     $sql = "SELECT * FROM user_skill WHERE User_id=$user_id AND Skill_id=$skill_id";
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) == 0){
         $sql = "SELECT * FROM user_skill WHERE Skill_id=(SELECT Parent_id FROM skill WHERE Skill_id=$skill_id)";
         $result = mysqli_query($conn, $sql);
-        if(mysqli_num_rows($result) == 0){
-            return "gray";
-        }else{
+        if(mysqli_num_rows($result) > 0 || $requirement=="None"){
             return "yellow";
+        }else{
+            return "gray";
         }
     }else{
         return "green";
@@ -41,7 +41,7 @@ function skill_tree($conn,$category,$level,$user_id,$indent_level = 1,$parent_id
             $requirement = $row["Requirement"];
             $hover_text = "Description: $description\nRequirement: $requirement";
             $indent = str_repeat("&nbsp;", 8 * $indent_level);
-            $color = skill_status($conn,$user_id,$skill_id);
+            $color = skill_status($conn,$user_id,$skill_id,$requirement);
 ?>
             <h3 style="<?php echo "color:$color" ?>" title="<?php echo $hover_text; ?>" ><?php echo $indent . $skill_name; ?></h3>
 <?php
