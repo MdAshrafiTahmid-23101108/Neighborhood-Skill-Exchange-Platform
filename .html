@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barter</title>
+</head>
+<body>
+    <section class="Barter">
+        
+        <h1>Users who have this skill:</h1>
+        <form action="barter.php" method="post">
+            <p>Searchbox:<input type="text" name="Searchbox" required></p>
+            <input type="submit" value="Search" />
+        </form>
+        <?php 
+        
+        if (isset($_POST["Searchbox"])) {
+            $search = $_POST["Searchbox"];
+            require_once("DBconnect.php");
+            $sql="SELECT * FROM user U INNER JOIN user_skill U_S ON U.User_id=U_S.User_id INNER JOIN skill S ON U_S.Skill_id=S.Skill_id WHERE S.Skill_name LIKE '%$search%'";
+            $result=mysqli_query($conn,$sql);
+        
+            if (mysqli_num_rows($result)>0){
+                while ($row = mysqli_fetch_assoc($result)){
+                ?>   
+                    <h3><?php echo "{$row['User_name']} : {$row['Skill_name']}"; ?>
+                    <?php 
+                    $sent_request=false;
+                    if ($sent_request){
+                        ?>
+                        <button disabled>Request Sent</button>
+                        <?php
+                    }
+                    else{
+                    ?>
+                    
+                    <form action="send_barter_request.php" method="POST">
+                    <input type="hidden" name="Receiver_id" value=<?php $row["User_id"] ?>>
+                    <button type="submit">Barter Request</button>
+                    </form>
+
+                    </h3>
+        <?php
+            }
+        } 
+    }
+}
+        ?>
+
+        
+    </section>
+
+</body>
+</html>

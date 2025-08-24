@@ -20,6 +20,9 @@ $user_id = $_SESSION['user_id'];
     </header>
     <nav>
         <a href="user_skill_tree.php">My skills</a>
+        <a href="barter.php">Barter</a>
+        <a href="logout.php">Log out</a>
+
     </nav>
     <?php 
     $sql = "SELECT * FROM user WHERE User_id=$user_id";
