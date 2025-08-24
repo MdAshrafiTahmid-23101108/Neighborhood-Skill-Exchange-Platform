@@ -16,7 +16,7 @@ function skill_status($conn,$user_id,$skill_id,$requirement){
         $sql = "SELECT * FROM user_skill WHERE Skill_id=(SELECT Parent_id FROM skill WHERE Skill_id=$skill_id)";
         $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0 || $requirement=="None"){
-            return "yellow";
+            return "brown";
         }else{
             return "gray";
         }
@@ -43,7 +43,7 @@ function skill_tree($conn,$category,$level,$user_id,$indent_level = 1,$parent_id
             $indent = str_repeat("&nbsp;", 8 * $indent_level);
             $color = skill_status($conn,$user_id,$skill_id,$requirement);
 ?>
-            <h3 style="<?php echo "color:$color" ?>" title="<?php echo $hover_text; ?>" ><?php echo $indent . $skill_name; ?></h3>
+            <h3 style="<?php echo "color:$color" ?>" title="<?php echo $hover_text; ?>" ><?php echo $indent . $skill_name."($level)"; ?></h3>
 <?php
             if($level=="Beginner"){
 ?>
@@ -76,11 +76,22 @@ function skill_tree($conn,$category,$level,$user_id,$indent_level = 1,$parent_id
     <title>My skills</title>
 </head>
 <body>
-    <h1>This is skill tree</h1>
+    <h1>This is skill tree page</h1>
+    <nav>
+        <a href="user_dashboard.php">Dashboard</a>
+        <a href="leaderboard.php">Leaderboard</a>
+    </nav>
     <section class="user">
         <h2><?php echo $name; ?></h2>
         <h3>Reputation Score: <?php echo $reputation;?></h3>
+        <p>
+            <h4 style="color:blue">Category</h4> 
+            <h4 style="color:green">Learned</h4>
+            <h4 style="color:brown">Recommended</h4>
+            <h4 style="color:gray">Locked</h4>
+        </p>
     </section>
+    <h1>Skill tree</h1>
     <?php
     $sql = "SELECT DISTINCT Category FROM skill";
     $result = mysqli_query($conn, $sql);
