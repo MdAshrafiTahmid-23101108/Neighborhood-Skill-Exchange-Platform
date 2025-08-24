@@ -13,7 +13,7 @@ function skill_status($conn,$user_id,$skill_id,$requirement){
     $sql = "SELECT * FROM user_skill WHERE User_id=$user_id AND Skill_id=$skill_id";
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) == 0){
-        $sql = "SELECT * FROM user_skill WHERE Skill_id=(SELECT Parent_id FROM skill WHERE Skill_id=$skill_id)";
+        $sql = "SELECT * FROM user_skill WHERE User_id=$user_id AND Skill_id=(SELECT Parent_id FROM skill WHERE Skill_id=$skill_id)";
         $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0 || $requirement=="None"){
             return "brown";
@@ -79,6 +79,8 @@ function skill_tree($conn,$category,$level,$user_id,$indent_level = 1,$parent_id
     <h1>This is skill tree page</h1>
     <nav>
         <a href="user_dashboard.php">Dashboard</a>
+        <a href="barter.php">Barter</a>
+        <a href="logout.php">Log out</a>
         <a href="leaderboard.php">Leaderboard</a>
     </nav>
     <section class="user">

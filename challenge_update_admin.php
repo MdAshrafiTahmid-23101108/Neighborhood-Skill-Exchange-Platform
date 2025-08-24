@@ -10,9 +10,11 @@
         <h1>This is Challenge List</h1>
     </header>
     <nav>
-        <a href="skill_update_admin.php"><h2>Skill List</h2></a>
-        <a href="admin_dashboard.html"><h2>Admin</h2></a>
+        <a href="skill_update_admin.php">Skill List</a>
+        <a href="admin_dashboard.html">Admin</a>
+        <a href="logout.php">Log out</a>
     </nav>
+    <h2>Challenge list</h2>
     <section class="Challenge list">
         <table>
             <thead>
