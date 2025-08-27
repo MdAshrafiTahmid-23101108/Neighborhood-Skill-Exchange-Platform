@@ -1,19 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <style>
+    :root{
+      --bg: #e6f7ff;        /* light blue page background */
+      --card: #ffffff;
+      --primary: #1e88e5;   /* button / accent */
+      --text: #0f172a;
+      --muted: #475569;
+      --radius: 12px;
+      --shadow: 0 12px 30px rgba(15,23,42,0.08);
+    }
+
+    /* page layout */
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    header{
+      width:100%;
+      max-width:460px;
+      margin:0 auto 18px;
+      text-align:center;
+    }
+    header h1{
+      margin:0;
+      font-size:1.4rem;
+      color:var(--primary);
+      letter-spacing:0.2px;
+      font-weight:700;
+    }
+
+    /* form card */
+    .login_form{
+      width:100%;
+      max-width:460px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px;
+      box-sizing:border-box;
+      margin:0 auto;
+    }
+
+    /* paragraphs become stacked label + input */
+    .login_form p{
+      margin:0 0 14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      font-weight:600;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .login_form input[type="text"],
+    .login_form input[type="password"]{
+      width:100%;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid rgba(15,23,42,0.06);
+      background:rgba(245,247,250,0.9);
+      font-size:1rem;
+      color:var(--text);
+      transition:box-shadow .18s ease, border-color .18s ease, transform .12s ease;
+      outline:none;
+      box-sizing:border-box;
+    }
+
+    .login_form input[type="text"]:focus,
+    .login_form input[type="password"]:focus{
+      box-shadow: 0 8px 24px rgba(30,136,229,0.08);
+      border-color: rgba(30,136,229,0.45);
+      transform: translateY(-1px);
+    }
+
+    .login_form input[type="submit"]{
+      width:100%;
+      display:block;
+      margin-top:6px;
+      padding:12px 14px;
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      font-weight:700;
+      font-size:1rem;
+      cursor:pointer;
+      box-shadow: 0 10px 26px rgba(30,136,229,0.14);
+      transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+    }
+
+    .login_form input[type="submit"]:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(30,136,229,0.18);
+    }
+
+    .login_form input[type="submit"]:active{
+      transform: translateY(0);
+      opacity:0.98;
+    }
+
+    /* Sign up hint */
+    h3{
+      margin:16px auto 0;
+      max-width:460px;
+      text-align:center;
+      font-weight:600;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    h3 a{
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+      margin-left:6px;
+    }
+    h3 a:hover{ text-decoration:underline; }
+
+    /* small screens */
+    @media (max-width:480px){
+      .login_form{ padding:18px; border-radius:10px; }
+      header h1{ font-size:1.15rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>This is our login page</h1>
-    </header>
-    <form class="login_form" action="login.php" method="post">
-            <p>User name:<input type="text" name="username" required></p>
-            <p>Password:<input type="password" name="password" required></p>
-            <input type="submit" value="Log in" />
-    </form>
-    <h3>New here <a href="signup.html">Sign Up</a></h3>
+  <header>
+    <h1>This is our login page</h1>
+  </header>
+
+  <form class="login_form" action="login.php" method="post">
+    <p>User name:
+      <input type="text" name="username" required>
+    </p>
+
+    <p>Password:
+      <input type="password" name="password" required>
+    </p>
+
+    <input type="submit" value="Log in" />
+  </form>
+
+  <h3>New here <a href="signup.html">Sign Up</a></h3>
 </body>
 </html>
