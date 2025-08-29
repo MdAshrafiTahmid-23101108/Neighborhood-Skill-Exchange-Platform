@@ -28,6 +28,8 @@ if (mysqli_num_rows($calculate_rank) > 0){
     <nav>
         <a href="user_skill_tree.php">My skills</a>
         <a href="user_dashboard.php">Dashboard</a>
+        <a href="barter.php">Barter</a>
+        <a href="logout.php">Log out</a>
     </nav>
     <section class="user">
         <h2><?php echo $name; ?></h2>

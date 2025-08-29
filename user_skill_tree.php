@@ -86,6 +86,31 @@ function skill_tree($conn,$category,$level,$user_id,$indent_level = 1,$parent_id
     <section class="user">
         <h2><?php echo $name; ?></h2>
         <h3>Reputation Score: <?php echo $reputation;?></h3>
+        <form action="add_skill_in_user_skill.php" method="post">
+            <h3>Add Skill</h3>
+            <select name="skill_id" id="skill_id" required>
+                <option value="">
+                    <?php
+                    $sql = "SELECT Skill_id, Skill_name, Expertise_level, Requirement FROM skill ORDER BY Category, Expertise_level, Skill_name";
+                    $result = mysqli_query($conn, $sql);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $skill_id = $row['Skill_id'];
+                            $skill_name = $row['Skill_name'];
+                            $level = $row['Expertise_level'];
+                            $requirement = $row['Requirement'];
+                            if(skill_status($conn,$user_id,$skill_id,$requirement) == "brown"){
+	                            ?>
+                                <option value="<?php echo $skill_id ?>"><?php echo "{$skill_name}({$level})" ?></option>
+                                <?php                                
+                            }
+                        }
+                    }
+                    ?>
+                </option>
+            </select>
+            <input type="submit" value="Add">
+        </form>
         <p>
             <h4 style="color:blue">Category</h4> 
             <h4 style="color:green">Learned</h4>
