@@ -19,6 +19,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Start_time</th>
@@ -35,6 +36,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                         ?>
                 <tr>
+                            <td align="center"><?php echo $row["Challenge_id"]; ?></td>
                             <td><?php echo $row["Title"]; ?></td>
                             <td><?php echo $row["Description"]; ?></td>
                             <td><?php echo $row["Start_time"]; ?></td>
@@ -47,6 +49,8 @@
                         ?>
             </tbody>
         </table>
+    </section>
+    <section class="Add Challenge">
         <h2>Add Challenges</h2>
         <form class="challenge_form" action="add_challenge_admin.php" method="post">
             <p>Title:<input type="text" name="title" required></p>
@@ -56,6 +60,13 @@
             <p>Reward:<input type="text" name="reward" required></p>
             <input type="submit" value="Add" />
           </form>
+    </section>
+    <section class="Remove challenge">
+        <h2>Remove Challenge</h2>
+        <form action="remove_challenge_admin.php" method="post">
+            <p>Challenge id:<input type="int" name="challenge_id" required></p>
+            <input type="submit" value="Remove" />
+        </form>
     </section>
 </body>
 </html>

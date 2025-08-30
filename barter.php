@@ -23,6 +23,7 @@ $search = $_GET['search'] ?? '';
         <a href="user_skill_tree.php">My skills</a>
         <a href="logout.php">Log out</a>
         <a href="leaderboard.php">Leaderboard</a>
+        <a href="user_challenge.php">Challenges</a>
     </nav>
     <section class="Barter">
     <h1>Users who have this skill:</h1>

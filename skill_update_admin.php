@@ -59,6 +59,8 @@
                 ?>
             </tbody>
         </table>
+    </section>
+    <section class="Add skill">
         <h2>Add Skill</h2>
         <form class="skill_form" action="add_skill_admin.php" method="post">
             <p>Skill Name:<input type="text" name="skill_name" required></p>
@@ -69,7 +71,8 @@
             <p>Requirement:<input type="text" name="requirement"></p>
             <input type="submit" value="Add" />
         </form>
-
+    </section>
+    <section class="Remove skill">
         <h2>Remove Skill</h2>
         <form action="remove_skill_admin.php" method="post">
             <p>Skill id:<input type="int" name="skill_id" required></p>

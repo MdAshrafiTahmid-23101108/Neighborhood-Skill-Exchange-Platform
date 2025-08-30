@@ -30,6 +30,7 @@ if (mysqli_num_rows($calculate_rank) > 0){
         <a href="user_dashboard.php">Dashboard</a>
         <a href="barter.php">Barter</a>
         <a href="logout.php">Log out</a>
+        <a href="user_challenge.php">Challenges</a>
     </nav>
     <section class="user">
         <h2><?php echo $name; ?></h2>

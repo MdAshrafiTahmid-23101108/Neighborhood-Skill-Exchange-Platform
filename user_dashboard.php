@@ -23,7 +23,7 @@ $user_id = $_SESSION['user_id'];
         <a href="barter.php">Barter</a>
         <a href="logout.php">Log out</a>
         <a href="leaderboard.php">Leaderboard</a>
-
+        <a href="user_challenge.php">Challenges</a>
     </nav>
     <?php 
     $sql = "SELECT * FROM user WHERE User_id=$user_id";

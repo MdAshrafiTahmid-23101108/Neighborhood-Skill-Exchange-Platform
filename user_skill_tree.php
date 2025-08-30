@@ -16,7 +16,7 @@ function skill_status($conn,$user_id,$skill_id,$requirement){
         $sql = "SELECT * FROM user_skill WHERE User_id=$user_id AND Skill_id=(SELECT Parent_id FROM skill WHERE Skill_id=$skill_id)";
         $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0 || $requirement=="None"){
-            return "brown";
+            return "orange";
         }else{
             return "gray";
         }
@@ -82,6 +82,7 @@ function skill_tree($conn,$category,$level,$user_id,$indent_level = 1,$parent_id
         <a href="barter.php">Barter</a>
         <a href="logout.php">Log out</a>
         <a href="leaderboard.php">Leaderboard</a>
+        <a href="user_challenge.php">Challenges</a>
     </nav>
     <section class="user">
         <h2><?php echo $name; ?></h2>
@@ -99,7 +100,7 @@ function skill_tree($conn,$category,$level,$user_id,$indent_level = 1,$parent_id
                             $skill_name = $row['Skill_name'];
                             $level = $row['Expertise_level'];
                             $requirement = $row['Requirement'];
-                            if(skill_status($conn,$user_id,$skill_id,$requirement) == "brown"){
+                            if(skill_status($conn,$user_id,$skill_id,$requirement) == "orange"){
 	                            ?>
                                 <option value="<?php echo $skill_id ?>"><?php echo "{$skill_name}({$level})" ?></option>
                                 <?php                                
@@ -114,7 +115,7 @@ function skill_tree($conn,$category,$level,$user_id,$indent_level = 1,$parent_id
         <p>
             <h4 style="color:blue">Category</h4> 
             <h4 style="color:green">Learned</h4>
-            <h4 style="color:brown">Recommended</h4>
+            <h4 style="color:orange">Recommended</h4>
             <h4 style="color:gray">Locked</h4>
         </p>
     </section>

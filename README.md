@@ -17,3 +17,5 @@
 
 ![ER Diagrame](ER_Diagrame.jpg)
 
+![Schema Diagrame](Schema_Diagrame.jpeg)
+
