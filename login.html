@@ -7,16 +7,14 @@
 
   <style>
     :root{
-      --bg: #e6f7ff;        /* light blue page background */
-      --card: #ffffff;
-      --primary: #1e88e5;   /* button / accent */
+      --bg: #e6f7ff;        
+      --primary: #1e88e5;   
       --text: #0f172a;
       --muted: #475569;
       --radius: 12px;
       --shadow: 0 12px 30px rgba(15,23,42,0.08);
     }
 
-    /* page layout */
     html,body{height:100%}
     body{
       margin:0;
@@ -30,7 +28,6 @@
       justify-content:center;
       padding:24px;
     }
-
     header{
       width:100%;
       max-width:460px;
@@ -44,8 +41,6 @@
       letter-spacing:0.2px;
       font-weight:700;
     }
-
-    /* form card */
     .login_form{
       width:100%;
       max-width:460px;
@@ -56,8 +51,6 @@
       box-sizing:border-box;
       margin:0 auto;
     }
-
-    /* paragraphs become stacked label + input */
     .login_form p{
       margin:0 0 14px;
       display:flex;
@@ -114,8 +107,6 @@
       transform: translateY(0);
       opacity:0.98;
     }
-
-    /* Sign up hint */
     h3{
       margin:16px auto 0;
       max-width:460px;
@@ -131,8 +122,6 @@
       margin-left:6px;
     }
     h3 a:hover{ text-decoration:underline; }
-
-    /* small screens */
     @media (max-width:480px){
       .login_form{ padding:18px; border-radius:10px; }
       header h1{ font-size:1.15rem; }

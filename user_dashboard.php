@@ -21,6 +21,7 @@ $user_id = $_SESSION['user_id'];
     <nav>
         <a href="user_skill_tree.php">My skills</a>
         <a href="barter.php">Barter</a>
+        <a href="session.php">Sessions</a>
         <a href="logout.php">Log out</a>
         <a href="leaderboard.php">Leaderboard</a>
         <a href="user_challenge.php">Challenges</a>
