@@ -75,7 +75,7 @@ $search = $_GET['search'] ?? '';
     }
     if ($search !== '') {
         $search_safe = mysqli_real_escape_string($conn, $search);
-        $sql_search = "SELECT U.User_id, U.User_name
+        $sql_search = "SELECT U.User_id, U.User_name, S.Skill_name, S.Expertise_level
                     FROM user U
                     INNER JOIN user_skill US ON U.User_id = US.User_id
                     INNER JOIN skill S ON US.Skill_id = S.Skill_id
@@ -86,7 +86,7 @@ $search = $_GET['search'] ?? '';
         if ($result_search && mysqli_num_rows($result_search) > 0) {
             while ($row = mysqli_fetch_assoc($result_search)) {
                 $receiver_id = $row['User_id'];
-                echo "<h3>{$row['User_name']}</h3>";
+                echo "<h3>{$row['User_name']}:{$row['Skill_name']}({$row['Expertise_level']})</h3>";
                 echo "<form action='send_barter_request.php' method='POST' style='display:inline'>";
                 echo "<input type='hidden' name='Receiver_id' value='$receiver_id'>";
                 echo "Session Location: <input type='text' name='Location' required>";

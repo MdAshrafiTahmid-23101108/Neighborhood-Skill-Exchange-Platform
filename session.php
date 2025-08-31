@@ -43,6 +43,7 @@ if ($result && mysqli_num_rows($result) > 0) {
             <th>Scheduled Time</th>
             <th>Barter Status</th>
             <th>Session Status</th>
+            <th hidden></th>
           </tr>";
     while ($row = mysqli_fetch_assoc($result)) {
         $other_user_id = ($row['User_1'] == $current_user_id) ? $row['User_2'] : $row['User_1'];
@@ -69,6 +70,15 @@ if ($result && mysqli_num_rows($result) > 0) {
         echo "<td>$scheduled_time</td>";
         echo "<td>{$row['Barter_status']}</td>";
         echo "<td>{$row['Session_status']}</td>";
+        if($row['Session_status'] == "due"){
+            ?>
+            <td><form action="complete_session.php" method="post">
+                <input type="hidden" name="session_id" value="<?php echo $row['Session_id'] ?>">
+                <input type="submit" value="complete">
+                </form>
+            </td>
+            <?php
+        }
         echo "</tr>";
     }
     echo "</table>";
