@@ -15,7 +15,6 @@ $search = $_GET['search'] ?? '';
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Barter</title>
-<link rel="stylesheet" href="style/design.css">
 </head>
 <body>
     <h1>This is barter page</h1>
@@ -25,7 +24,6 @@ $search = $_GET['search'] ?? '';
         <a href="logout.php">Log out</a>
         <a href="leaderboard.php">Leaderboard</a>
         <a href="user_challenge.php">Challenges</a>
-        <a href="session.php">Sessions</a>
     </nav>
     <section class="Barter">
     <h1>Users who have this skill:</h1>

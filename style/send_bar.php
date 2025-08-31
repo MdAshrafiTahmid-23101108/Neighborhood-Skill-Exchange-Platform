@@ -1,7 +1,9 @@
 <?php
 session_start();
 require_once("DBconnect.php");
+
 $current_user_id = $_SESSION['user_id'] ?? null;
+
 if(isset($_POST['Receiver_id'], $_POST['Location'], $_POST['Scheduled_time'])){
     $receiver_id = $_POST['Receiver_id'];
     $location = mysqli_real_escape_string($conn, $_POST['Location']);
@@ -15,6 +17,7 @@ if(isset($_POST['Receiver_id'], $_POST['Location'], $_POST['Scheduled_time'])){
     $sql_engage = "INSERT INTO engages_in (User_1, User_2, Barter_id) VALUES ($current_user_id, $receiver_id, $barter_id)";
     mysqli_query($conn, $sql_engage);
 }
+
 header("Location: barter.php");
 exit();
 ?>
