@@ -16,6 +16,7 @@ if (isset($_POST["User_id"]) && isset($_POST["Challenge_id"])){
     }
     $sql = "UPDATE user SET Reputation= Reputation + $Reward WHERE User_id = $User_id";
     mysqli_query($conn, $sql);
+    mysqli_query($conn,"DELETE FROM participates_in WHERE User_id=$User_id AND Challenge_id=$Challenge_id");
 }
 header("Location: admin_request_pending.php");
 exit();

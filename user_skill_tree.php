@@ -79,7 +79,9 @@ function skill_tree($conn,$category,$level,$user_id,$indent_level = 1,$parent_id
     <h1>This is skill tree page</h1>
     <nav>
         <a href="user_dashboard.php">Dashboard</a>
+        <a href="user_skill_tree.php">My skills</a>
         <a href="barter.php">Barter</a>
+        <a href="session.php">Sessions</a>
         <a href="logout.php">Log out</a>
         <a href="leaderboard.php">Leaderboard</a>
         <a href="user_challenge.php">Challenges</a>

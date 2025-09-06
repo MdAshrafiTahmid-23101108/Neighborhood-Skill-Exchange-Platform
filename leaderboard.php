@@ -7,7 +7,7 @@ if(!isset($_SESSION['user_id'])){
 }
 $user_id = $_SESSION['user_id'];
 $name = $_SESSION['user_name'];
-$reputation = $_SESSION['reputation'];
+$reputation = mysqli_fetch_assoc(mysqli_query($conn,"SELECT Reputation FROM user WHERE User_id=$user_id"))["Reputation"];
 $user_rank = 1;
 $calculate_rank = mysqli_query($conn,"SELECT COUNT(DISTINCT Reputation) AS rank FROM user WHERE Role='user' AND Reputation > $reputation ORDER BY Reputation DESC,User_name ASC");
 if (mysqli_num_rows($calculate_rank) > 0){
@@ -26,10 +26,12 @@ if (mysqli_num_rows($calculate_rank) > 0){
         <h1>This is Leaderboard page</h1>
     </header>
     <nav>
-        <a href="user_skill_tree.php">My skills</a>
         <a href="user_dashboard.php">Dashboard</a>
+        <a href="user_skill_tree.php">My skills</a>
         <a href="barter.php">Barter</a>
+        <a href="session.php">Sessions</a>
         <a href="logout.php">Log out</a>
+        <a href="leaderboard.php">Leaderboard</a>
         <a href="user_challenge.php">Challenges</a>
     </nav>
     <section class="user">

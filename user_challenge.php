@@ -24,8 +24,10 @@ $reputation = $_SESSION['reputation'];
         <a href="user_dashboard.php">Dashboard</a>
         <a href="user_skill_tree.php">My skills</a>
         <a href="barter.php">Barter</a>
+        <a href="session.php">Sessions</a>
         <a href="logout.php">Log out</a>
         <a href="leaderboard.php">Leaderboard</a>
+        <a href="user_challenge.php">Challenges</a>
     </nav>
     <section class="user">
         <h2><?php echo $name; ?></h2>

@@ -11,7 +11,9 @@
     </header>
     <nav>
         <a href="admin_dashboard.html">Admin</a>
+        <a href="skill_update_admin.php">Skill List</a>
         <a href="challenge_update_admin.php">Challenge List</a>
+        <a href="admin_request_pending.php">Waiting List</a>
         <a href="logout.php">Log out</a>
     </nav>
     <h2>Skill list</h2>

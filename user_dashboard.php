@@ -19,6 +19,7 @@ $user_id = $_SESSION['user_id'];
         <h1>This is User Dashboard</h1>
     </header>
     <nav>
+        <a href="user_dashboard.php">Dashboard</a>
         <a href="user_skill_tree.php">My skills</a>
         <a href="barter.php">Barter</a>
         <a href="session.php">Sessions</a>

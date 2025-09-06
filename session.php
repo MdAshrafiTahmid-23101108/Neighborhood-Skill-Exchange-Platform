@@ -31,7 +31,15 @@ $result = mysqli_query($conn, $sql);
 </head>
 <body>
 <h1>My Sessions</h1>
-<a href="user_dashboard.php">Back to Dashboard</a>
+<nav>
+        <a href="user_dashboard.php">Dashboard</a>
+        <a href="user_skill_tree.php">My skills</a>
+        <a href="barter.php">Barter</a>
+        <a href="session.php">Sessions</a>
+        <a href="logout.php">Log out</a>
+        <a href="leaderboard.php">Leaderboard</a>
+        <a href="user_challenge.php">Challenges</a>
+</nav>
 <br><br>
 <?php
 if ($result && mysqli_num_rows($result) > 0) {

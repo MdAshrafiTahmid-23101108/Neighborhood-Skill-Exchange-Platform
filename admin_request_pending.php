@@ -19,8 +19,10 @@ if(!isset($_SESSION['user_id'])){
         <h1>This is Request Pending from User</h1>
     </header>
     <nav>
+        <a href="admin_dashboard.html">Admin</a>
         <a href="skill_update_admin.php">Skill List</a>
         <a href="challenge_update_admin.php">Challenge List</a>
+        <a href="admin_request_pending.php">Waiting List</a>
         <a href="logout.php">Log out</a>
     </nav>
     <table>
@@ -57,7 +59,7 @@ if(!isset($_SESSION['user_id'])){
                     <form action= "admin_confirm.php" method = "post">
                         <input type="hidden" name = "Challenge_id" value = "<?php echo $row["Challenge_id"]; ?>">
                         <input type="hidden" name = "User_id" value = "<?php echo $row["User_id"]; ?>">
-                        <input type = "submit" name = "confirm" value = conirm>
+                        <input type = "submit" name = "confirm" value = confirm>
                     </form>
                 </td>
             </tr>
