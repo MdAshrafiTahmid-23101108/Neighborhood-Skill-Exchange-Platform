@@ -1,6 +1,5 @@
 body.barter-page {
-    background: linear-gradient(to right, hwb(127 29% 44%), hsl(126, 61%, 58%)); /* same palette as homepage */
-    color: #fff;
+    background: linear-gradient(to right, hwb(127 29% 44%), hsl(126, 61%, 58%));
     height: auto;
     display: block;
     padding: 20px;
@@ -11,8 +10,6 @@ body.barter-page h1 {
     margin-bottom: 25px;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
 }
-
-/* Navigation links */
 body.barter-page nav a {
     color: #ffffff !important;
     border: 2px solid #ffffff;
@@ -21,29 +18,22 @@ body.barter-page nav a {
     font-weight: bold;
     transition: all 0.3s ease;
 }
-
 body.barter-page nav a:hover {
     background-color: #ffffff !important;
-    color: #13b167 !important; /* consistent green hover */
+    color: #13b167 !important;
 }
-
-/* Barter section */
 body.barter-page .Barter {
     max-width: 900px;
     margin: 0 auto;
 }
-
-/* Barter cards (requests) */
 body.barter-page .Barter form {
-    background-color: rgba(255,255,255,0.9); /* soft white with slight transparency */
+    background-color: rgba(255,255,255,0.9);
     color: #333;
     padding: 15px 20px;
     border-radius: 8px;
     margin-bottom: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
-/* Form inputs */
 body.barter-page .Barter form input[type="text"],
 body.barter-page .Barter form input[type="datetime-local"] {
     padding: 6px 8px;
@@ -51,10 +41,8 @@ body.barter-page .Barter form input[type="datetime-local"] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
-/* Buttons */
 body.barter-page .Barter form button {
-    background-color: #13b167; /* green from homepage palette */
+    background-color: #13b167;
     color: white;
     border: none;
     padding: 6px 12px;
@@ -62,18 +50,13 @@ body.barter-page .Barter form button {
     cursor: pointer;
     transition: background 0.3s;
 }
-
 body.barter-page .Barter form button:hover {
     background-color: #0e8f4e;
 }
-
-/* Horizontal line between entries */
 body.barter-page .Barter hr {
     border: 0.5px solid #ccc;
     margin: 15px 0;
 }
-
-/* Small text inside cards */
 body.barter-page .Barter p, 
 body.barter-page .Barter span {
     font-size: 0.95rem;
