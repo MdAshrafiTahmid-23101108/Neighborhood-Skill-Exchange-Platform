@@ -58,6 +58,7 @@ $reputation = $_SESSION['reputation'];
                     <td align="center"><?php echo $row["Reward"]; ?></td>
                     <td>
                     <form action="join_challenge.php" method="post">
+                        <input type="hidden" name = "challenge_id" value = "<?php echo $row["Challenge_id"]; ?>">
                         <input type="submit" value="join">
                     </form>
                     </td>
